@@ -13,8 +13,8 @@ package Utilidades;
  */
 public final class ConfiguracionCorreo {
 
-    public static final String CORREO_REMITENTE = "coloque.aqui@gmail.com";
-    public static final String CORREO_CLAVE = "coloque-aqui-su-clave-de-aplicacion";
+    public static final String CORREO_REMITENTE = "adrianosb2008@gmail.com";
+    public static final String CORREO_CLAVE = "hkwu hdjb pggi dedu";
     public static final String SERVIDOR_SMTP = "smtp.gmail.com";
     public static final int PUERTO_SMTP = 587;
 
