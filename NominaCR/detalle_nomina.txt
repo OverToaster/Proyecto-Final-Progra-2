@@ -94,3 +94,15 @@
 96,9,Fondo de Capitalización Laboral (FCL),10500.0,APORTE_PATRONAL
 97,9,Régimen Obligatorio de Pensiones (ROP),14000.0,APORTE_PATRONAL
 98,9,Instituto Nacional de Seguros (INS),7000.0,APORTE_PATRONAL
+99,10,CCSS - Seguro de Enfermedad y Maternidad (SEM),38500.0,DEDUCCION_TRABAJADOR
+100,10,CCSS - Invalidez Vejez y Muerte (IVM),29190.0,DEDUCCION_TRABAJADOR
+101,10,Banco Popular (aporte trabajador),7000.0,DEDUCCION_TRABAJADOR
+102,10,CCSS - Seguro de Enfermedad y Maternidad (SEM),64750.0,APORTE_PATRONAL
+103,10,CCSS - Invalidez Vejez y Muerte (IVM),37940.0,APORTE_PATRONAL
+104,10,Banco Popular (aporte patronal),3500.0,APORTE_PATRONAL
+105,10,Asignaciones Familiares (FODESAF),35000.0,APORTE_PATRONAL
+106,10,IMAS,3500.0,APORTE_PATRONAL
+107,10,INA,10500.0,APORTE_PATRONAL
+108,10,Fondo de Capitalización Laboral (FCL),10500.0,APORTE_PATRONAL
+109,10,Régimen Obligatorio de Pensiones (ROP),14000.0,APORTE_PATRONAL
+110,10,Instituto Nacional de Seguros (INS),7000.0,APORTE_PATRONAL
