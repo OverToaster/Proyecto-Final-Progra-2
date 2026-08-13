@@ -68,7 +68,7 @@ public class CalculoNominaCR extends CalculoBase {
         List<DetalleNomina> lineas = new ArrayList<>();
         lineas.add(linea("CCSS - Seguro de Enfermedad y Maternidad (SEM)",
                 salarioBruto * CCSS_SEM_PATRONAL, TipoRubro.APORTE_PATRONAL));
-        lineas.add(linea("CCSS - Invalidez, Vejez y Muerte (IVM)",
+        lineas.add(linea("CCSS - Invalidez Vejez y Muerte (IVM)",
                 salarioBruto * CCSS_IVM_PATRONAL, TipoRubro.APORTE_PATRONAL));
         lineas.add(linea("Banco Popular (aporte patronal)",
                 salarioBruto * BANCO_POPULAR_PATRONAL, TipoRubro.APORTE_PATRONAL));
