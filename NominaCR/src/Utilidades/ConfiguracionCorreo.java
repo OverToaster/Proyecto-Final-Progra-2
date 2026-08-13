@@ -18,7 +18,7 @@ public final class ConfiguracionCorreo {
     public static final String SERVIDOR_SMTP = "smtp.gmail.com";
     public static final int PUERTO_SMTP = 587;
 
-    public static final String CORREO_PATRONO = "patrono@ejemplo.com";
+    public static final String CORREO_PATRONO = "adrianosb2008@gmail.com";
 
     private ConfiguracionCorreo() {
         // clase de configuración: no se instancia
