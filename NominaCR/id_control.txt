@@ -1,0 +1,4 @@
+usuarios.txt=2
+detalle_nomina.txt=183
+empleados.txt=9
+nominas.txt=17
