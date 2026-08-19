@@ -41,6 +41,13 @@ src/
   - `itextpdf-5.5.13.3.jar`
   - `javax.mail-1.6.2.jar`
   - `activation-1.1.1.jar`
+- Se pueden conseguir con estos links:
+  - iText5:
+  - https://repo1.maven.org/maven2/com/itextpdf/itextpdf/5.5.13.3/itextpdf-5.5.13.3.jar
+  - JavaMail:
+  - https://repo1.maven.org/maven2/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar
+  - Activacion (dependencia para el JavaMail):
+  - https://repo1.maven.org/maven2/javax/activation/activation/1.1.1/activation-1.1.1.jar
 
 ## Cómo ejecutarlo
 
