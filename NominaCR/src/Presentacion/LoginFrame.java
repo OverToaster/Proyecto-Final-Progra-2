@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  * Pantalla de inicio de sesión. Solo dibuja la interfaz y delega toda
@@ -67,16 +68,53 @@ public class LoginFrame extends JFrame {
         gbc.gridwidth = 2;
         add(botonIngresar, gbc);
 
+        JButton botonRegistrar = new JButton("Registrar usuario");
+        gbc.gridy = 3;
+        add(botonRegistrar, gbc);
+
         etiquetaMensaje = new JLabel(" ");
         etiquetaMensaje.setForeground(Color.RED);
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         add(etiquetaMensaje, gbc);
 
         botonIngresar.addActionListener(this::onIngresar);
         campoPassword.addActionListener(this::onIngresar);
+        botonRegistrar.addActionListener(e -> abrirRegistro());
 
         pack();
         setLocationRelativeTo(null);
+
+        verificarSiHayUsuarios();
+    }
+
+    /**
+     * Si usuarios.txt está vacío (primera vez que se usa el sistema),
+     * avisa y abre automáticamente el registro para crear el primer
+     * usuario. Si la verificación falla por cualquier motivo, el login
+     * sigue funcionando normalmente (solo no se ofrece el registro
+     * automático).
+     */
+    private void verificarSiHayUsuarios() {
+        if (controlador == null) {
+            return;
+        }
+        try {
+            if (!controlador.hayUsuariosRegistrados()) {
+                etiquetaMensaje.setForeground(new Color(0, 90, 190));
+                etiquetaMensaje.setText("No hay usuarios registrados. Registre el primero.");
+                SwingUtilities.invokeLater(this::abrirRegistro);
+            }
+        } catch (Exception e) {
+            // No se pudo verificar; se deja el login disponible igual.
+        }
+    }
+
+    private void abrirRegistro() {
+        if (controlador == null) {
+            return;
+        }
+        RegistroUsuarioFrame dialogo = new RegistroUsuarioFrame(this, controlador);
+        dialogo.setVisible(true);
     }
 
     private void onIngresar(ActionEvent evento) {

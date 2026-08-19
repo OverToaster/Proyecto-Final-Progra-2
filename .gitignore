@@ -23,3 +23,5 @@
 hs_err_pid*
 replay_pid*
 /NominaCR/build/
+/NominaCR_Registro/build/
+/NominaCR_Registro/nbproject/private/

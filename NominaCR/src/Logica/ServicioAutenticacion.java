@@ -3,7 +3,10 @@ package Logica;
 import AccesoDatos.archivo.UsuarioDAO;
 import Entidades.Usuario;
 import Excepciones.AutenticacionFallidaException;
+import Excepciones.ValidacionException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Contiene la regla de negocio de autenticación: verificar credenciales
@@ -35,5 +38,45 @@ public class ServicioAutenticacion {
             throw new AutenticacionFallidaException("Usuario o contraseña incorrectos.");
         }
         return usuario;
+    }
+
+    /**
+     * Indica si ya existe al menos un usuario registrado en usuarios.txt.
+     * Se usa en el login para ofrecer el registro del primer usuario
+     * cuando el archivo está vacío.
+     */
+    public boolean hayUsuarios() throws IOException {
+        List<Usuario> todos = new ArrayList<>();
+        usuarioDAO.listar(todos);
+        return !todos.isEmpty();
+    }
+
+    /**
+     * Registra un nuevo usuario. Valida que los campos no estén vacíos y
+     * que el nombre de usuario no esté ya en uso antes de delegar la
+     * persistencia al DAO.
+     */
+    public Usuario registrar(String username, String password, String rol) throws IOException {
+        if (username == null || username.trim().isEmpty()) {
+            throw new ValidacionException("El nombre de usuario es obligatorio.");
+        }
+        if (password == null || password.isEmpty()) {
+            throw new ValidacionException("La contraseña es obligatoria.");
+        }
+        if (rol == null || rol.trim().isEmpty()) {
+            throw new ValidacionException("El rol es obligatorio.");
+        }
+
+        Usuario existente = usuarioDAO.buscarPorUsername(username.trim());
+        if (existente != null) {
+            throw new ValidacionException("Ya existe un usuario con ese nombre de usuario.");
+        }
+
+        Usuario nuevo = new Usuario();
+        nuevo.setUsername(username.trim());
+        nuevo.setPassword(password);
+        nuevo.setRol(rol.trim());
+        usuarioDAO.crear(nuevo);
+        return nuevo;
     }
 }
